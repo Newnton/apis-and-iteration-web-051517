@@ -19,6 +19,15 @@ def get_character_from_user
   gets.chomp
   # use gets to capture the user's input. This method should return that input, downcased.
 end
-#
-# get-ui()
-# iterator()
+
+def check_for_character(ui)
+  all_characters = RestClient.get('http://www.swapi.co/api/people/')
+  character_hash = JSON.parse(all_characters)
+  character_hash["results"].each do |person|
+    person.each do |key, values|
+      if key == "name"
+        return person
+      end
+    end
+  end
+end
