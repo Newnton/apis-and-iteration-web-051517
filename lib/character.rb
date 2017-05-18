@@ -4,11 +4,10 @@ require 'pry'
 
 class Character
   def initialize(person_hash)
-    @films = []
     @film_URLS = person_hash["films"]
     @name = person_hash["name"]
   end
-  attr_reader :films, :name, :film_URLS
+  attr_reader :name, :film_URLS
 end
 
 
